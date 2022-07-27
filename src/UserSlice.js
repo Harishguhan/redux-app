@@ -7,8 +7,6 @@ const initialState ={
     users:[],
     error:'',
 }
-
-
 export const fetchUsers = createAsyncThunk('user/fetchUsers',() => {
     return axios
     .get('http://localhost:7000/posts')

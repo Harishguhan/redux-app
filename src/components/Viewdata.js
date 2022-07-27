@@ -2,7 +2,6 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { deleteUsers, fetchUsers } from "../UserSlice";
-// import swal from "sweetalert";
 import swal from 'sweetalert';
 const Viewdata = () => {
   const navigate = useNavigate();
@@ -18,7 +17,7 @@ const Viewdata = () => {
   const deletedata = (userss) => {
     swal({
       title: "Are you sure?",
-      text: "Once deleted, you will not be able to recover this imaginary file!",
+      text: "Once the the file deleted it will not be recovered",
       icon: "warning",
       buttons: true,
       dangerMode: true,
@@ -27,11 +26,11 @@ const Viewdata = () => {
       if (willDelete) {
         dispatch(deleteUsers(userss));
         dispatch(fetchUsers())
-        swal("Poof! Your imaginary file has been deleted!", {
+        swal("Your Data deleted", {
           icon: "success",
         });
       } else {
-        swal("Your imaginary file is safe!");
+        
       }
     });
     
@@ -40,8 +39,8 @@ const Viewdata = () => {
   return (
     <div className="container">
         <div className="d-flex justify-content-end">
-          <Link to="/">
-            <button className="btn btn-outline-dark mt-4">Add Student</button>
+          <Link to="/add">
+            <button className="btn btn-outline-dark mt-4">Add Data</button>
           </Link>
         </div>
       <div className="row">
@@ -61,7 +60,6 @@ const Viewdata = () => {
                     <h6 className="mt-3">Email: {user.email}</h6>
                     <h6 className="mt-3">MobileNumber: {user.mobilenumber}</h6>
                     <h6 className="mt-3">Address: {user.city}</h6>
-                    
                   <button
                     className="btn btn-outline-warning"
                     onClick={() => updatedata(user.id)}
@@ -82,9 +80,6 @@ const Viewdata = () => {
           <p>No data</p>
         )}
       </div>
-      <Link to="/">
-        <button className="btn btn-primary mt-2">ADD</button>
-      </Link>
     </div>
   );
 };

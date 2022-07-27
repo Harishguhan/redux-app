@@ -39,7 +39,7 @@ const EditData = () => {
   const handlesubmit = (e) => {
     e.preventDefault();
     dispatch(editUsers(updatevalue));
-    navigate("/view");
+    navigate("/");
   };
   const updatevalue = {
     id: parseInt(id),

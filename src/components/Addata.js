@@ -34,7 +34,7 @@ console.log(data)
     }
     else{
     dispatch(addUsers(details))
-    navigate('/view')
+    navigate('/')
     }
   }
   const details = {
