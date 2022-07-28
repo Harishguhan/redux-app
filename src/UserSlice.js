@@ -13,7 +13,6 @@ export const fetchUsers = createAsyncThunk('user/fetchUsers',() => {
     .then((responce) =>responce.data)
 })
 export const deleteUsers = createAsyncThunk('user/deleteUsers',(userss) => {
-    console.log(userss)
     return axios
     .delete(`http://localhost:7000/posts/${userss}`)
     .then((responce) =>responce.data)
