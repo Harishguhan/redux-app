@@ -15,7 +15,7 @@ const Home = () => {
             placeholder="Type Your Id"
             onChange={(e) => change(e)}
           />
-          <Link to={`/${roomid}`}>Join Room</Link>
+          <Link className="btn" to={`/${roomid}`}>Join Room</Link>
         </div>
       </div>
     </div>
