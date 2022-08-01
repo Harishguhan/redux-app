@@ -47,3 +47,32 @@
     border-radius: 6px;
 
 }
+.home{
+    background-color: aqua;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.home-card{
+    display: flex;
+    flex-direction: column;
+}
+.home-input{
+    padding: 8px;
+    border-radius: 5px;
+    border: none;
+}
+.home-button{
+    border: 2px solid black;
+    margin-top: 10px;
+}
+@media screen and (max-width: 480px) {
+    .letter{
+        position: absolute;
+        top: 30px;
+        left: 130px;
+    }
+    
+  }
