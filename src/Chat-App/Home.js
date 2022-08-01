@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import './ChatApp.css'
 const Home = () => {
-  const [roomid, setRoomid] = useState("");
+  const [roomId, setRoomid] = useState("");
   const change = (e) => {
     setRoomid(e.target.value);
   };
@@ -16,7 +16,7 @@ const Home = () => {
             placeholder="Type Your Id"
             onChange={(e) => change(e)}
           />
-          <Link className="btn home-button" to={`/${roomid}`}>Lets Chat</Link>
+          <Link className="btn home-button" to={`/${roomId}`}>Lets Chat</Link>
         </div>
       </div>
     </div>

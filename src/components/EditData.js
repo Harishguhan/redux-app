@@ -37,9 +37,26 @@ const EditData = () => {
   }, [filteredData]);
 
   const handlesubmit = (e) => {
-    e.preventDefault();
+    const regEx = /[a-zA-Z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,8}(.[a-z{2,8}])?/g;
+    var phoneno = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
+    e.preventDefault();  
+    if(!edit.name){
+      setError({...error,username:'Name cannot be Blank'})
+    }else if(!edit.email){
+      setError({...error,email:'Email cannot be Blank'})
+    }else if(!edit.email.match(regEx)){
+      setError({...error,email:'Enter Valid Email Address'})
+    }else if(!edit.mobilenumber){
+      setError({...error,mobilenumber:'Mobile Number Cannot be blank'})
+    }else if(!edit.mobilenumber.match(phoneno)){
+      setError({...error,mobilenumber:'Enter Valid Mobile number'})
+    }else if(!edit.city){
+      setError({...error,city:'CityName cannot be Blank'})
+    }
+    else{
     dispatch(editUsers(updatevalue));
-    navigate("/");
+    navigate("/view");
+    }
   };
   const updatevalue = {
     id: parseInt(id),

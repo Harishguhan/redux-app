@@ -3,9 +3,9 @@ import { useParams } from "react-router-dom";
 import useChat from "./useChat";
 import "./ChatApp.css";
 const ChatBox = () => {
-  const { roomid } = useParams();
-  console.log(roomid);
-  const { msg, sendmsg } = useChat(roomid);
+  const { roomId } = useParams();
+  console.log(roomId);
+  const { msg, sendmsg } = useChat(roomId);
   const [newmsg, setnewmsg] = useState("");
   const change = (e) => {
     setnewmsg(e.target.value);

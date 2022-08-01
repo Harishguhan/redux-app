@@ -26,6 +26,7 @@
     "eject": "react-scripts eject"
   },
   "devDependencies": {
-    "@babel/plugin-syntax-dynamic-import": "^7.8.3"
+    "@babel/plugin-syntax-dynamic-import": "^7.8.3",
+    "@testing-library/react": "^13.3.0"
   }
 }
