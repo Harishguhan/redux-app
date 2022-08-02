@@ -1,11 +1,11 @@
 import React from "react";
-import Viewdata from './components/Viewdata'
+import Viewdata from "./components/Viewdata";
 import Addata from "./components/Addata";
-import { Route, Routes } from "react-router-dom";
+import { Route, Router, Routes } from "react-router-dom";
 import EditData from "./components/EditData";
 import Home from "./Chat-App/Home";
 import ChatBox from "./Chat-App/ChatBox";
-import Navbar from './Navbar';
+import Navbar from "./Navbar";
 import Counter from "./components/Counter";
 
 function App() {
