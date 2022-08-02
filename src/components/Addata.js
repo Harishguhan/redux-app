@@ -33,7 +33,7 @@ console.log(data)
       setError({...error,city:'CityName cannot be Blank'})
     }
     else{
-    dispatch(addUsers(details))
+    dispatch(addUsers(details)) 
     navigate('/view')
     }
   }

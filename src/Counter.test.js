@@ -5,9 +5,10 @@ import Counter from "./components/Counter";
 
 test("counter app", () => {
   render(<Counter />);
-  const counter = screen.getByTestId("counter");
+  const counter = screen.getByTestId("count");
   const inbtn = screen.getByTestId("increment");
 
   fireEvent.click(inbtn);
-  expect(counter).toHaveTextContent("1");
+ 
+  expect(counter.textContent).toBe("1");
 });
