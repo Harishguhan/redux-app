@@ -81,6 +81,7 @@ console.log(data)
                   placeholder="Enter your Email"
                   name="email"
                   onChange={(e) => handlechange(e)}
+                  data-testid="emailaddress"
                 />
                 <span style={{ color: "red" }}>{error.email}</span>
               </label>
@@ -94,6 +95,7 @@ console.log(data)
                   placeholder="Enter your mobilenumber"
                   name="mobilenumber"
                   onChange={(e) => handlechange(e)}
+                  data-testid="mobilenumber"
                 />
                 <span style={{ color: "red" }}>{error.mobilenumber}</span>
               </label>

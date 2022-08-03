@@ -89,6 +89,7 @@ const EditData = () => {
                   name="name"
                   value={edit.name}
                   onChange={(e) => handlechange(e)}
+                  data-testid="nameinput"
                 />
                 <span style={{ color: "red" }}>{error.username}</span>
               </label>

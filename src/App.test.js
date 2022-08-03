@@ -11,23 +11,32 @@ describe("testing App comonent", () => {
       render(
         <Provider store={store}>
           <Router>
-            <Addata />
+            <App />
           </Router>
         </Provider>
       );
     });
-    it("Rnders the form",() =>{
-        const username = screen.getByTestId("userName");
+    // it("Renders the form", () => {
+    //   const username = screen.getByTestId("");
+    //   const email = screen.getByTestId("emailaddress");
+    //   const mobilenumber = screen.getByTestId("");
+    //   expect(username).toBeInTheDocument();
+    //   expect(email).toBeInTheDocument();
+    //   expect(mobilenumber).toBeInTheDocument();
+    // });
 
-        expect(username).toBeInTheDocument();
-    });
-
-    it("submit the form",() =>{
-        const username = screen.getByTestId("userName");
-
-        fireEvent.change(username,{target:{value:"some value"}})
-        expect(username).toHaveTextContent("");
-
-    })
+    // it("submit the form", () => {
+    //   const username = screen.getByTestId("userName");
+    //   const email = screen.getByTestId("email");
+    //   fireEvent.change(username, { target: { value: "some value" } });
+    //   fireEvent.change(email, { target: { value: "some value" } });
+    //   fireEvent.change(mobilenumber, {
+    //     target: { value: "1212121211", length: 10 },
+    //   });
+    //   expect(username).toHaveTextContent("");
+    //   expect(username.textContent).toBe("harish");
+    //   expect(email).toHaveTextContent("");
+    //   expect(mobilenumber).toHaveTextContent("");
+    // });
   });
 });
