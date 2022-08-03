@@ -7,6 +7,7 @@ import Home from "./Chat-App/Home";
 import ChatBox from "./Chat-App/ChatBox";
 import Navbar from "./Navbar";
 import Counter from "./components/Counter";
+import LoginForm from "./LoginForm";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         <Route path="/view" element={<Viewdata />} />
         <Route path="/edit/:id" element={<EditData />} />
         <Route path="/counter" element={<Counter />} />
+        <Route path="/loginform" element={<LoginForm />} />
       </Routes>
     </div>
   );

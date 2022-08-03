@@ -11,11 +11,14 @@ describe("testing App comonent", () => {
       render(
         <Provider store={store}>
           <Router>
-            <App />
+            <Appdata />
           </Router>
         </Provider>
       );
-    });
+    
+    const username = screen.getByTestId('username')
+    expect(username).toHaveTextContent('')
+});
     // it("Renders the form", () => {
     //   const username = screen.getByTestId("");
     //   const email = screen.getByTestId("emailaddress");
