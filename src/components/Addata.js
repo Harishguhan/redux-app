@@ -55,7 +55,7 @@ console.log(data)
               width={"50px"}
               className="WELL"
             ></img>
-            <p>ADD DATA</p>
+            <p data-testid="welcome">ADD DATA</p>
           </header>
           <form className="main-form text-center" onSubmit={handlesubmit}>
             <div className="form-group my-0">
@@ -67,6 +67,7 @@ console.log(data)
                   placeholder="Enter your username"
                   name="username"
                   onChange={(e) => handlechange(e)}
+                  data-testid="userName"
                 />
                 <span style={{ color: "red" }}>{error.username}</span>
               </label>
