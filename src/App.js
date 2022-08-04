@@ -12,7 +12,6 @@ import LoginForm from "./LoginForm";
 function App() {
   return (
     <div>
-      <BrowserRouter>
       <Routes>
         <Route path="/" element={<Navbar />} />
         <Route path="/home" element={<Home />} />
@@ -23,7 +22,6 @@ function App() {
         <Route path="/counter" element={<Counter />} />
         <Route path="/loginform" element={<LoginForm />} />
       </Routes>
-      </BrowserRouter>
     </div>
   );
 }

@@ -7,12 +7,19 @@ import { store } from "./store";
 import { BrowserRouter as Router } from "react-router-dom";
 import Addata from "./components/Addata";
 import '@testing-library/jest-dom/extend-expect';
+import { configureStore } from "@reduxjs/toolkit";
+
+
+const stores = configureStore
+({
+  reducer: {},
+});
 
 describe("testing App comonent", () => {
   test("app test", () => {
     beforeEach(() => {
     const { getByTestId } = render(
-      <Provider store={store}>
+      <Provider store={stores}>
         <Router>
           <Addata />
         </Router>
@@ -20,10 +27,7 @@ describe("testing App comonent", () => {
     );
     test('username, mobilenumber ', () => {
       const username = getByTestId('username');
-
-      console.log(username)
-
-      
+        
     });
     });
  
