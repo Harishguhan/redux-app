@@ -1,45 +1,32 @@
 import React from "react";
-import { fireEvent, render } from "@testing-library/react";
+import EditData from "./components/EditData";
+import App from "./App";
+import { fireEvent, render, screen } from "@testing-library/react";
 import { Provider } from "react-redux";
 import { store } from "./store";
-import { Router } from "react-router-dom";
+import { BrowserRouter as Router } from "react-router-dom";
 import Addata from "./components/Addata";
+import '@testing-library/jest-dom/extend-expect';
 
 describe("testing App comonent", () => {
   test("app test", () => {
     beforeEach(() => {
-      render(
-        <Provider store={store}>
-          <Router>
-            <Appdata />
-          </Router>
-        </Provider>
-      );
-    
-    const username = screen.getByTestId('username')
-    expect(username).toHaveTextContent('')
-});
-    // it("Renders the form", () => {
-    //   const username = screen.getByTestId("");
-    //   const email = screen.getByTestId("emailaddress");
-    //   const mobilenumber = screen.getByTestId("");
-    //   expect(username).toBeInTheDocument();
-    //   expect(email).toBeInTheDocument();
-    //   expect(mobilenumber).toBeInTheDocument();
-    // });
+    const { getByTestId } = render(
+      <Provider store={store}>
+        <Router>
+          <Addata />
+        </Router>
+      </Provider>
+    );
+    test('username, mobilenumber ', () => {
+      const username = getByTestId('username');
 
-    // it("submit the form", () => {
-    //   const username = screen.getByTestId("userName");
-    //   const email = screen.getByTestId("email");
-    //   fireEvent.change(username, { target: { value: "some value" } });
-    //   fireEvent.change(email, { target: { value: "some value" } });
-    //   fireEvent.change(mobilenumber, {
-    //     target: { value: "1212121211", length: 10 },
-    //   });
-    //   expect(username).toHaveTextContent("");
-    //   expect(username.textContent).toBe("harish");
-    //   expect(email).toHaveTextContent("");
-    //   expect(mobilenumber).toHaveTextContent("");
-    // });
+      console.log(username)
+
+      
+    });
+    });
+ 
   });
+
 });

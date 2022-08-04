@@ -67,7 +67,7 @@ console.log(data)
                   placeholder="Enter your username"
                   name="username"
                   onChange={(e) => handlechange(e)}
-                  data-testid="userName"
+                  data-testid="username"
                 />
                 <span style={{ color: "red" }}>{error.username}</span>
               </label>
