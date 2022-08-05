@@ -3,47 +3,52 @@ import "./Adddata.css";
 import { useDispatch } from "react-redux";
 import { addUsers } from "../UserSlice";
 import { useNavigate } from "react-router-dom";
+
 const Addata = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const [data, setdata] = useState({});
+  const [data, setdata]  = useState({});
   const [error, setError] = useState({});
+
   const handlechange = (e) => {
     setdata({ ...data, [e.target.name]: e.target.value });
     if (!e.target.value) {
-      setError({ ...error, [e.target.name]: `${e.target.name} cannot be blank` });
+      setError({
+        ...error,
+        [e.target.name]: `${e.target.name} cannot be blank`,
+      });
     } else setError("");
   };
-console.log(data)
-  const handlesubmit = (e) =>{
+
+  console.log(data);
+  const handlesubmit = (e) => {
     const regEx = /[a-zA-Z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,8}(.[a-z{2,8}])?/g;
     var phoneno = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
-    e.preventDefault();  
-    if(!data.username){
-      setError({...error,username:'Name cannot be Blank'})
-    }else if(!data.email){
-      setError({...error,email:'Email cannot be Blank'})
-    }else if(!data.email.match(regEx)){
-      setError({...error,email:'Enter Valid Email Address'})
-    }else if(!data.mobilenumber){
-      setError({...error,mobilenumber:'Mobile Number Cannot be blank'})
-    }else if(!data.mobilenumber.match(phoneno)){
-      setError({...error,mobilenumber:'Enter Valid Mobile number'})
-    }else if(!data.city){
-      setError({...error,city:'CityName cannot be Blank'})
+    e.preventDefault();
+    if (!data.username) {
+      setError({ ...error, username: "Name cannot be Blank" });
+    } else if (!data.email) {
+      setError({ ...error, email: "Email cannot be Blank" });
+    } else if (!data.email.match(regEx)) {
+      setError({ ...error, email: "Enter Valid Email Address" });
+    } else if (!data.mobilenumber) {
+      setError({ ...error, mobilenumber: "Mobile Number Cannot be blank" });
+    } else if (!data.mobilenumber.match(phoneno)) {
+      setError({ ...error, mobilenumber: "Enter Valid Mobile number" });
+    } else if (!data.city) {
+      setError({ ...error, city: "CityName cannot be Blank" });
+    } else {
+      dispatch(addUsers(details));
+      navigate("/view");
     }
-    else{
-    dispatch(addUsers(details)) 
-    navigate('/view')
-    }
-  }
-  const details = {
-    name:data.username,
-    email:data.email,
-    mobilenumber:data.mobilenumber,
-    city:data.city,
-    image:data.image
-  }
+  };
+  const details= {
+    name: data.username,
+    email: data.email,
+    mobilenumber: data.mobilenumber,
+    city: data.city,
+    image: data.image,
+  };
   return (
     <div className="container my-login containers">
       <div className="card cards">
@@ -60,7 +65,7 @@ console.log(data)
           <form className="main-form text-center" onSubmit={handlesubmit}>
             <div className="form-group my-0">
               <label className="my-0">
-                <i class="fa-solid fa-user"></i>
+                <i className="fa-solid fa-user"></i>
                 <input
                   type="text"
                   className="my-input"
@@ -74,7 +79,7 @@ console.log(data)
             </div>
             <div className="form-group my-0">
               <label className="my-0">
-                <i class="fa-solid fa-envelope"></i>
+                <i className="fa-solid fa-envelope"></i>
                 <input
                   type="text"
                   className="my-input"
@@ -88,7 +93,7 @@ console.log(data)
             </div>
             <div className="form-group my-0">
               <label className="my-0">
-                <i class="fa-solid fa-phone"></i>
+                <i className="fa-solid fa-phone"></i>
                 <input
                   type="text"
                   className="my-input"
@@ -102,7 +107,7 @@ console.log(data)
             </div>
             <div className="form-group my-0">
               <label className="my-0">
-                <i class="fa-solid fa-location-dot"></i>
+                <i className="fa-solid fa-location-dot"></i>
                 <input
                   type="text"
                   className="my-input"
@@ -110,7 +115,7 @@ console.log(data)
                   name="city"
                   onChange={(e) => handlechange(e)}
                 />
-                  <span style={{ color: "red" }}>{error.city}</span>
+                <span style={{ color: "red" }}>{error.city}</span>
               </label>
             </div>
             <button type="submit" className="button">
