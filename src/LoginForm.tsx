@@ -1,11 +1,25 @@
 import React,{useState} from "react";
+
+type AuthUser ={
+  name:string,
+  email:string,
+  mobilenumber:string,
+  cityname:string
+ }
+let initial = {
+  name:'',
+  email:'',
+  mobilenumber:'',
+  cityname:''
+}
+
 function LoginForm() {
-    const [input,setInput] = useState({});
-    const handlechange = (e) =>{
+    const [input,setInput] = useState<AuthUser>(initial);
+    const handlechange = (e:React.ChangeEvent<HTMLInputElement>) =>{
     setInput({...input,[e.target.name]:e.target.value});
     }
     const handleclick = () =>{
-        setInput({});
+        setInput(initial);
     }
   return (
     <div className="">

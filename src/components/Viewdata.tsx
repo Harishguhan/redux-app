@@ -3,23 +3,32 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { deleteUsers, fetchUsers } from "../UserSlice";
 import swal from 'sweetalert';
+import { AppDispatch, RootState } from "../store";
+
+type AuthUser ={
+  id:number,
+  name:string,
+  email:string,
+  mobilenumber:number,
+  city:string
+ }
+
 const Viewdata = () => {
   const navigate = useNavigate();
-  const user = useSelector((state) => state.user);
-  console.log(user)
-  const dispatch = useDispatch();
+  const user = useSelector((state:RootState) => state.user);
+  const dispatch = useDispatch<AppDispatch>();
   useEffect(() => {
     dispatch(fetchUsers());
   }, []);
-  const updatedata = (id) => {
+  const updatedata = (id:number) => {
     navigate(`/edit/${id}`);
   };
-  const deletedata = (userss) => {
+  const deletedata = (userss:AuthUser) => {
     swal({
       title: "Are you sure?",
       text: "Once the the file deleted it will not be recovered",
       icon: "warning",
-      buttons: true,
+      // buttons: true,
       dangerMode: true,
     })
     .then((willDelete) => {
@@ -33,8 +42,6 @@ const Viewdata = () => {
         
       }
     });
-    
-    
   };
   return (
     <div className="container">
@@ -47,7 +54,7 @@ const Viewdata = () => {
         {user.loading && <div>Loading</div>}
         {!user.loading && user.error ? <div>Error:{user.error}</div> : null}
         {!user.loading && user.users.length ? (
-          user.users.map((user) => (
+          user.users.map((user:any) => (
             <div className="col-lg-4 col-md-6 mt-2">
               <div className="card" style={{ width: "18rem" }}>
                 <img

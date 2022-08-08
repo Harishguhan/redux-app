@@ -16,5 +16,4 @@ describe("welcome to home", () => {
     fireEvent.click(decrementBtn);
     expect(counter.textContent).toBe("-1");
   });
-
 });

@@ -12,17 +12,17 @@ export const fetchUsers = createAsyncThunk('user/fetchUsers',() => {
     .get('http://localhost:7000/posts')
     .then((responce) =>responce.data)
 })
-export const deleteUsers = createAsyncThunk('user/deleteUsers',(userss) => {
+export const deleteUsers:any = createAsyncThunk('user/deleteUsers',(userss) => {
     return axios
     .delete(`http://localhost:7000/posts/${userss}`)
     .then((responce) =>responce.data)
 })
-export const addUsers =createAsyncThunk('user.addUsers',(details) =>{
+export const addUsers:any = createAsyncThunk('user.addUsers',(details) =>{
     return axios
     .post('http://localhost:7000/posts',details)
     .then((responce) =>responce.data)
 })
-export const editUsers =createAsyncThunk('user.editUsers',(updatevalue) =>{
+export const editUsers:any =createAsyncThunk('user.editUsers',(updatevalue) =>{
     
     return axios
     
@@ -48,7 +48,6 @@ const userSlice = createSlice({
             state.users = []
             state.error = action.error.message
         })
-
     }
 })
 

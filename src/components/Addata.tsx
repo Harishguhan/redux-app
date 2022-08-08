@@ -3,25 +3,40 @@ import "./Adddata.css";
 import { useDispatch } from "react-redux";
 import { addUsers } from "../UserSlice";
 import { useNavigate } from "react-router-dom";
+import { AppDispatch } from "../store";
+
+type AuthUser = {
+  username?: string;
+  email?: string;
+  mobilenumber?: string;
+  city?: string;
+};
 
 const Addata = () => {
   const navigate = useNavigate();
-  const dispatch = useDispatch();
-  const [data, setdata]  = useState({});
-  const [error, setError] = useState({});
+  const dispatch = useDispatch<AppDispatch>();
+  const [data, setdata] = useState<AuthUser>({});
+  const [error, setError] = useState<AuthUser>({});
 
-  const handlechange = (e) => {
+  const handlechange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setdata({ ...data, [e.target.name]: e.target.value });
     if (!e.target.value) {
       setError({
         ...error,
         [e.target.name]: `${e.target.name} cannot be blank`,
       });
-    } else setError("");
+    } else setError({});
+  };
+
+  const details = {
+    name: data.username,
+    email: data.email,
+    mobilenumber: data.mobilenumber,
+    city: data.city,
   };
 
   console.log(data);
-  const handlesubmit = (e) => {
+  const handlesubmit = (e: React.FormEvent) => {
     const regEx = /[a-zA-Z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,8}(.[a-z{2,8}])?/g;
     var phoneno = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
     e.preventDefault();
@@ -42,13 +57,7 @@ const Addata = () => {
       navigate("/view");
     }
   };
-  const details= {
-    name: data.username,
-    email: data.email,
-    mobilenumber: data.mobilenumber,
-    city: data.city,
-    image: data.image,
-  };
+  
   return (
     <div className="container my-login containers">
       <div className="card cards">

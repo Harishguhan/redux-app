@@ -1,70 +1,78 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
+import { AppDispatch, RootState } from "../store";
 import { editUsers, fetchUsers } from "../UserSlice";
 import "./Adddata.css";
 
-const EditData = () => {
-  const [edit, setEdit] = useState({});
-  const [error, setError] = useState({});
-  const { id } = useParams();
-  const navigate = useNavigate();
-  const dispatch = useDispatch();
-  const editData = useSelector((state) => state.user);
+type AuthUser = {
+  id?: number;
+  username?: string;
+  email?: string;
+  mobilenumber?: string;
+  city?: string;
+};
 
-  const handlechange = (e) => {
+const EditData = () => {
+  const [edit, setEdit] = useState<AuthUser>({});
+  const [error, setError] = useState<AuthUser>({});
+  const { id } = useParams();
+  console.log(id);
+  const navigate = useNavigate();
+  const dispatch = useDispatch<AppDispatch>();
+  const editData = useSelector((state: RootState) => state?.user);
+
+  const handlechange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setEdit({ ...edit, [e.target.name]: e.target.value });
     if (!e.target.value) {
       setError({
         ...error,
         [e.target.name]: `${e.target.name} cannot be blank`,
       });
-    } else {
-      setError("");
     }
   };
 
-  useEffect(()=>{
-    dispatch(fetchUsers()); 
-  },[])
-  const filteredData =
-    editData && editData.users.find((data) => data.id === parseInt(id));
   useEffect(() => {
-    
+    dispatch(fetchUsers());
+  }, []);
+  const filteredData =
+    editData && editData.users.find((data:any) => data.id === parseInt(id));
+  useEffect(() => {
     if (filteredData) {
       setEdit(filteredData);
     }
   }, [filteredData]);
 
-  const handlesubmit = (e) => {
+  const handlesubmit = (e: React.FormEvent) => {
     const regEx = /[a-zA-Z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,8}(.[a-z{2,8}])?/g;
     var phoneno = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
-    e.preventDefault();  
-    if(!edit.name){
-      setError({...error,username:'Name cannot be Blank'})
-    }else if(!edit.email){
-      setError({...error,email:'Email cannot be Blank'})
-    }else if(!edit.email.match(regEx)){
-      setError({...error,email:'Enter Valid Email Address'})
-    }else if(!edit.mobilenumber){
-      setError({...error,mobilenumber:'Mobile Number Cannot be blank'})
-    }else if(!edit.mobilenumber.match(phoneno)){
-      setError({...error,mobilenumber:'Enter Valid Mobile number'})
-    }else if(!edit.city){
-      setError({...error,city:'CityName cannot be Blank'})
-    }
-    else{
-    dispatch(editUsers(updatevalue));
-    navigate("/view");
+    e.preventDefault();
+    if (!edit.username) {
+      setError({ ...error, username: "Name cannot be Blank" });
+    } else if (!edit.email) {
+      setError({ ...error, email: "Email cannot be Blank" });
+    } else if (!edit.email.match(regEx)) {
+      setError({ ...error, email: "Enter Valid Email Address" });
+    } else if (!edit.mobilenumber) {
+      setError({ ...error, mobilenumber: "Mobile Number Cannot be blank" });
+    } else if (!edit.mobilenumber.match(phoneno)) {
+      setError({ ...error, mobilenumber: "Enter Valid Mobile number" });
+    } else if (!edit.city) {
+      setError({ ...error, city: "CityName cannot be Blank" });
+    } else {
+      dispatch(editUsers(updatevalue));
+      navigate("/view");
     }
   };
+
   const updatevalue = {
     id: parseInt(id),
-    name: edit.name,
+    name: edit.username,
     email: edit.email,
     mobilenumber: edit.mobilenumber,
     city: edit.city,
   };
+  console.log(id);
   return (
     <div className="container my-login containers">
       <div className="card cards">
@@ -81,13 +89,13 @@ const EditData = () => {
           <form className="main-form text-center" onSubmit={handlesubmit}>
             <div className="form-group my-0">
               <label className="my-0">
-                <i class="fa-solid fa-user"></i>
+                <i className="fa-solid fa-user"></i>
                 <input
                   type="text"
                   className="my-input"
                   placeholder="Enter your username"
-                  name="name"
-                  value={edit.name}
+                  name="username"
+                  value={edit.username}
                   onChange={(e) => handlechange(e)}
                   data-testid="nameinput"
                 />
@@ -96,7 +104,7 @@ const EditData = () => {
             </div>
             <div className="form-group my-0">
               <label className="my-0">
-                <i class="fa-solid fa-envelope"></i>
+                <i className="fa-solid fa-envelope"></i>
                 <input
                   type="email"
                   className="my-input"
@@ -110,7 +118,7 @@ const EditData = () => {
             </div>
             <div className="form-group my-0">
               <label className="my-0">
-                <i class="fa-solid fa-phone"></i>
+                <i className="fa-solid fa-phone"></i>
                 <input
                   type="text"
                   className="my-input"
@@ -124,7 +132,7 @@ const EditData = () => {
             </div>
             <div className="form-group my-0">
               <label className="my-0">
-                <i class="fa-solid fa-location-dot"></i>
+                <i className="fa-solid fa-location-dot"></i>
                 <input
                   type="text"
                   className="my-input"

@@ -20,7 +20,7 @@ test('renders learn react link', () => {
 
 
 
-  expect(username.value).toBe('');
+  expect(username.value).toBe('haihs');
   expect(email.value).toBe('harishguhan@dorustree.in');
   expect(mobilenumber.value).toBe('9025099853');
   expect(cityname.value).toBe('Trichy');

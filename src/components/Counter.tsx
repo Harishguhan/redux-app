@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 const Counter = () => {
     const [count,setCount] = useState(0);
     const incremant = () =>{
-        setCount((prevCounter) => prevCounter+5)
+        setCount((prevCounter) => prevCounter+2)
     }
     const decremant = () =>{
         setCount((prevCounter) => prevCounter-1)
