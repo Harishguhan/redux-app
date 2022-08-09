@@ -22,7 +22,7 @@ export const addUsers:any = createAsyncThunk('user.addUsers',(details) =>{
     .post('http://localhost:7000/posts',details)
     .then((responce) =>responce.data)
 })
-export const editUsers:any =createAsyncThunk('user.editUsers',(updatevalue) =>{
+export const editUsers:any =createAsyncThunk('user.editUsers',(updatevalue:any) =>{
     
     return axios
     

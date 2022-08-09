@@ -1,9 +1,9 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
-import { deleteUsers, fetchUsers } from "../UserSlice";
 import swal from 'sweetalert';
-import { AppDispatch, RootState } from "../store";
+import { AppDispatch, RootState } from "../../store/store";
+import { deleteUsers, fetchUsers } from "../../store/UserSlice";
 
 type AuthUser ={
   id:number,
