@@ -2,9 +2,9 @@
   "posts": [
     {
       "id": 2,
-      "name": "23",
+      "name": "harishguhan",
       "email": "11dsfdsfds@gg.com",
-      "mobilenumber": "fghg",
+      "mobilenumber": "9022828821",
       "city": "trichy"
     },
     {
@@ -16,10 +16,10 @@
     },
     {
       "id": 4,
-      "name": "Harishguhan",
+      "name": "Harish",
       "email": "harishguhan@gmail.com",
       "mobilenumber": "9022828821",
-      "city": "123"
+      "city": "chennai"
     },
     {
       "name": "hsdhgf",
@@ -48,13 +48,6 @@
       "email": "harishguhan@gmail.com",
       "mobilenumber": "1234567890",
       "city": "trichy1"
-    },
-    {
-      "name": "111",
-      "email": "harishguhan@gmail.com",
-      "mobilenumber": "1234567890",
-      "city": "1",
-      "id": 9
     }
   ]
 }
