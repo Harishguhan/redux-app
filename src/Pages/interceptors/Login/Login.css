@@ -28,15 +28,37 @@
     
 }
 .inputs-field:focus{
-    background-color:white;
+    
     outline: none;
 }
 .log-btn{
     margin-top: 10px;
-    margin-left: 86px;
+    margin-left: 100px;
     width: 260px;
     padding: 5px;
     background: transparent;
     border-color: white;
     border-radius: 4px;
 }
+.groups{
+    margin-left: 88px;
+    padding: 10px 10px;
+}
+
+@media only screen and (max-width: 425px) {
+   
+    .login-content{
+        height: 330px;
+        background-color: unset;
+        border-radius: 12px;
+        box-shadow: 0px 0px 9px;
+        width: 295px;
+        
+    }
+    .groups{
+        margin-left: -20px;
+    }
+    .log-btn{
+        margin-left: -20px;
+    }
+  }

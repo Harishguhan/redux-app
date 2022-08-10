@@ -46,7 +46,7 @@ const Register = () => {
         <div className="col-lg-6  bg-white rounded register">
           <h1>Register form</h1>
           <form onSubmit={handlesubmit}>
-            <div className="form-group groups">
+            <div className="form-group groupss">
               <label>Name</label>
               <br />
               <input
@@ -57,7 +57,7 @@ const Register = () => {
                 onChange={(e) => handlechange(e)}
               />
             </div>
-            <div className="form-group groups">
+            <div className="form-group groupss">
               <label>Email</label>
               <br />
               <input
@@ -68,7 +68,7 @@ const Register = () => {
                 onChange={(e) => handlechange(e)}
               />
             </div>
-            <div className="form-group groups">
+            <div className="form-group groupss">
               <label>Password</label>
               <br />
               <input
@@ -79,7 +79,7 @@ const Register = () => {
                 onChange={(e) => handlechange(e)}
               />
             </div>
-            <div className="form-group groups">
+            <div className="form-group groupss">
               <label>cityname</label>
               <br />
               <input
