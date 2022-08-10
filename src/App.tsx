@@ -1,13 +1,13 @@
 import React from "react";
-import { BrowserRouter, Route, Router, Routes } from "react-router-dom";
-import Navbar from "./components/Navbar";
+import { Route, Routes } from "react-router-dom";
+import Navbar from "./components/Navbar/Navbar";
 import Viewdata from "./Pages/Viewcontact/Viewdata";
 import EditData from "./Pages/Editcontact/EditData";
 import Counter from "./Pages/Counter/Counter";
-import LoginForm from "./components/LoginForm";
 import Addata from "./Pages/AddContact/Addata";
-import Register from "./Pages/interceptors/Register";
-import Login from "./Pages/interceptors/Login";
+import Register from "./Pages/interceptors/Register/Register";
+import Login from "./Pages/interceptors/Login/Login";
+import LoginForm from "./components/Loginform/LoginForm";
 
 
 function App() {

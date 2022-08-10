@@ -2,7 +2,14 @@ import { createSlice,createAsyncThunk } from "@reduxjs/toolkit";
 
 import axios from "axios";
 
-const initialState ={
+
+type initial = {
+    loading:boolean,
+    users:any,
+    error:string
+}
+
+const initialState:initial ={
     loading:false,
     users:[],
     error:'',
@@ -35,15 +42,15 @@ const userSlice = createSlice({
     name:'user',
     initialState,
     extraReducers:(builder) =>{
-        builder.addCase(fetchUsers.pending,(state) =>{
+        builder.addCase(fetchUsers.pending,(state:initial) =>{
             state.loading = true
         })
-        builder.addCase(fetchUsers.fulfilled, (state,action) =>{
+        builder.addCase(fetchUsers.fulfilled, (state:initial,action) =>{
             state.loading = false
             state.users = action.payload
             state.error = ''
         })
-        builder.addCase(fetchUsers.rejected,(state,action) =>{
+        builder.addCase(fetchUsers.rejected,(state:initial,action) =>{
             state.loading = false
             state.users = []
             state.error = action.error.message

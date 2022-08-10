@@ -17,3 +17,12 @@ const custom = customURL.interceptors.request.use(
     }    
 );
 
+export default customURL
+
+// createAxiosResponceInterceptor();
+
+// function createAxiosResponceInterceptor() {
+//     customURL.interceptors.response.use(
+        
+//     )
+// }

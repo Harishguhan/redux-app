@@ -1,0 +1,42 @@
+.login-background{
+    background-image: url('https://images.unsplash.com/photo-1592718652928-24ddbff09126?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80');
+    min-height: 100vh;
+    background-repeat: no-repeat;
+    background-size: 50% 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;  
+    background-color: lightgreen;
+}
+.login-content{
+    padding: 40px 20px;
+    background-color: unset;
+    border-radius: 12px;
+    box-shadow: 0px 0px 9px;
+    
+}
+.login-content h1{
+    text-transform: uppercase;
+    text-align: center;
+}
+.inputs-field{
+    padding: 6px;
+    border: 2px solid white;
+    background: white;
+    background: transparent;
+    border-radius: 5px;
+    
+}
+.inputs-field:focus{
+    background-color:white;
+    outline: none;
+}
+.log-btn{
+    margin-top: 10px;
+    margin-left: 86px;
+    width: 260px;
+    padding: 5px;
+    background: transparent;
+    border-color: white;
+    border-radius: 4px;
+}

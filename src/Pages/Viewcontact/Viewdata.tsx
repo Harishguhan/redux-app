@@ -5,7 +5,7 @@ import swal from 'sweetalert';
 import { AppDispatch, RootState } from "../../store/store";
 import { deleteUsers, fetchUsers } from "../../store/UserSlice";
 
-type AuthUser ={
+interface declare {
   id:number,
   name:string,
   email:string,
@@ -23,12 +23,11 @@ const Viewdata = () => {
   const updatedata = (id:number) => {
     navigate(`/edit/${id}`);
   };
-  const deletedata = (userss:AuthUser) => {
+  const deletedata = (userss:declare) => {
     swal({
       title: "Are you sure?",
       text: "Once the the file deleted it will not be recovered",
       icon: "warning",
-      // buttons: true,
       dangerMode: true,
     })
     .then((willDelete) => {
