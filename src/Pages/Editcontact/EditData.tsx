@@ -20,7 +20,7 @@ const EditData = () => {
   console.log(typeof(id));
   const navigate = useNavigate();
   const dispatch = useDispatch<AppDispatch>();
-  const editData = useSelector((state: RootState) => state?.user);
+  const editData:any = useSelector((state: RootState) => state?.user);
 
   const handlechange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setEdit({ ...edit, [e.target.name]: e.target.value });

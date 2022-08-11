@@ -61,4 +61,8 @@
     .log-btn{
         margin-left: -20px;
     }
+    .login-background{
+        background-size: cover;
+        
+    }
   }

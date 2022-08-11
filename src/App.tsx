@@ -6,8 +6,9 @@ import EditData from "./Pages/Editcontact/EditData";
 import Counter from "./Pages/Counter/Counter";
 import Addata from "./Pages/AddContact/Addata";
 import Register from "./Pages/interceptors/Register/Register";
-import Login from "./Pages/interceptors/Login/Login";
+
 import LoginForm from "./components/Loginform/LoginForm";
+import Login from "./Pages/interceptors/Login/Login";
 
 
 function App() {
@@ -20,7 +21,7 @@ function App() {
         <Route path="/edit/:id" element={<EditData />} />
         <Route path="/counter" element={<Counter />} />
         <Route path="/loginform" element={<LoginForm />} />
-        <Route path="/register" element={ <Register /> } />
+        <Route path="/signup" element={ <Register /> } />
         <Route path="/login" element = {<Login />} />
       </Routes>
     </div>

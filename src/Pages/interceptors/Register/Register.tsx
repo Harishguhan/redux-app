@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import customURL from "../../../Axios/index";
 import "./Register.css";
+import { useNavigate } from 'react-router-dom';
 interface Register {
   name?: string;
   email?: string;
@@ -9,6 +10,7 @@ interface Register {
 }
 
 const Register = () => {
+  const navigate = useNavigate();
   const [user, setuser] = useState<Register>({});
   const handlechange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setuser({ ...user, [e.target.name]: e.target.value });
@@ -17,17 +19,17 @@ const Register = () => {
     e.preventDefault();
     let { name, email, password, cityname } = user;
     console.log(user)
-  //   customURL
-  //     .post("/auth/register", { name, password })
-  //     .then((responce) => {
-  //       if (responce.status === 201) {
-  //         alert("User Registered Succesfully");
-  //       } else {
-  //         alert("Failed To register User");
-  //       }
-  //     })
-  //     .catch((error) => console.error(error.message));
-  // };
+    customURL
+      .post("/auth/signup", { email, password })
+      .then((responce) => {
+        if (responce.status === 201) {
+          alert("User Registered Succesfully");
+          navigate('/login')
+        } else {
+          alert("Failed To register User");
+        }
+      })
+      .catch((error) => console.error(error.message));
   }
   return (
     <div className="container-fluid box">

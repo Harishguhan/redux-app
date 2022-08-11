@@ -27,7 +27,7 @@ const Navbar = () => {
               <Link to="/view" className="navbar-link mx-3">
                 <button className="btn btn-info">CRUD</button>
               </Link>
-              <Link to="/register" className="navbar-link mx-3">
+              <Link to="/signup" className="navbar-link mx-3">
                 <button className="btn btn-info">Register</button>
               </Link>
             </div>

@@ -15,7 +15,8 @@ interface declare {
 
 const Viewdata = () => {
   const navigate = useNavigate();
-  const user = useSelector((state:RootState) => state.user);
+  const user:any = useSelector((state:RootState) => state.user);
+  console.log(user);
   const dispatch = useDispatch<AppDispatch>();
   useEffect(() => {
     dispatch(fetchUsers());
