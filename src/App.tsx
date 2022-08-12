@@ -9,6 +9,7 @@ import Register from "./Pages/interceptors/Register/Register";
 
 import LoginForm from "./components/Loginform/LoginForm";
 import Login from "./Pages/interceptors/Login/Login";
+import Dashboard from "./Pages/interceptors/dashboard/Dashboard";
 
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
         <Route path="/loginform" element={<LoginForm />} />
         <Route path="/signup" element={ <Register /> } />
         <Route path="/login" element = {<Login />} />
+        <Route path="/dashboard" element = { <Dashboard /> } />
       </Routes>
     </div>
   );

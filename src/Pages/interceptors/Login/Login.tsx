@@ -4,33 +4,55 @@ import './Login.css';
 import { useNavigate } from "react-router-dom";
 const Login = () => {
 
-  const names:string = '';
-  const passwords:string = '';
-  // console.log(initial)
-  const navigate = useNavigate();
-  const [name, setname] = useState('');
-  const [password,setpassword] = useState('');
+  interface keyValue{
+    key:string,
+    value:string,
+  }
 
+  interface logintype{
+    username:string,
+    password:string,
+  }
+
+  const initialvalue:logintype = {
+    username:'',
+    password:'',
+  };
+
+
+  const [loginuser,setloginuser] = useState<logintype>(initialvalue);
+
+  const navigate = useNavigate();
+
+  const handlechange = (prop:keyValue) =>{
+    let finalvalue:logintype = {...loginuser }
+
+    if (prop.key === 'username') finalvalue.username = prop.value
+    else if(prop.key === 'password') finalvalue.password = prop.value
+    setloginuser(finalvalue)
+  }
 
 const handlesubmit = (e:React.FormEvent) =>{
   e.preventDefault();
-  if(name && password ){
-    setname(names);
-    setpassword(passwords);
+
+  let { username,password } = loginuser;
+  if (username && password){
+    setloginuser(initialvalue)
+  
     customURL
-      .post('/auth/login',{email:name})
+      .post('/auth/login',{email:username})
       .then((responce) => {
         console.log('responce.data',responce)
-        if(responce?.data?.status === 'success'){
+        if(responce?.data?.status === 'Success'){
           localStorage.setItem('access_token', responce.data.token);
             localStorage.setItem('refresh_token', responce.data.refreshToken);
-            navigate('/home');
+            navigate('/dashboard');
         } else{
           alert('Login Failed');
         }
       })
       .catch((err) => console.error(err.message));
-  }
+}
 }
 
   return (
@@ -43,10 +65,10 @@ const handlesubmit = (e:React.FormEvent) =>{
             <br />
             <input
               type="email"
-              placeholder="Enter Your Name"
+              placeholder="Enter Your Email"
               name="name"
               className="inputs-field"
-              onChange={(e) => setname(e.target.value)}
+              onChange={(e) => handlechange({key:'username',value:e.target.value})}
             />
           </div>
           <div className="form-group groups">
@@ -57,7 +79,7 @@ const handlesubmit = (e:React.FormEvent) =>{
               placeholder="Enter Your Password"
               name="password"
               className="inputs-field"
-              onChange={(e) => setpassword(e.target.value)}
+              onChange={(e) => handlechange({key:'password',value:e.target.value})}
             />
           </div>
           <button className="log-btn">Log In</button>
