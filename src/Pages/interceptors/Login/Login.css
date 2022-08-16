@@ -25,7 +25,7 @@
     background: white;
     background: transparent;
     border-radius: 5px;
-    
+    color: white;
 }
 .inputs-field:focus{
     
@@ -44,7 +44,9 @@
     margin-left: 88px;
     padding: 10px 10px;
 }
-
+::placeholder{
+    color: white;
+}
 @media only screen and (max-width: 425px) {
    
     .login-content{

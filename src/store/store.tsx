@@ -1,9 +1,9 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { Provider } from "react-redux";
-import UserReducer from "./UserSlice";
+import UseSlicer from "./UserSlice";
 export const store = configureStore({
-  reducer:{
-    user: UserReducer,
+  reducer: {
+    user: UseSlicer.reducer,
   },
 });
 export type RootState = ReturnType<typeof store.getState>;

@@ -8,7 +8,7 @@ import { addUsers } from "../../store/UserSlice";
 type AuthUser = {
   username?: string;
   email?: string;
-  mobilenumber?: string;
+  mobilenumber?: number;
   city?: string;
 };
 
@@ -46,11 +46,6 @@ const Addata = () => {
       setError({ ...error, email: "Email cannot be Blank" });
     } else if (!data.email.match(regEx)) {
       setError({ ...error, email: "Enter Valid Email Address" });
-    } else if (!data.mobilenumber) {
-      setError({ ...error, mobilenumber: "Mobile Number Cannot be blank" });
-    } else if (!data.mobilenumber.match(phoneno)) {
-      setError({ ...error, mobilenumber: "Enter Valid Mobile number" });
-    } else if (!data.city) {
       setError({ ...error, city: "CityName cannot be Blank" });
     } else {
       dispatch(addUsers(details));

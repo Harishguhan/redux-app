@@ -38,7 +38,8 @@ export const editUsers: any = createAsyncThunk(
 
 const userSlice: object = createSlice({
   name: "user",
-  initialState,
+  initialState: initialState,
+  reducers: {},
   extraReducers: (builder) => {
     builder.addCase(fetchUsers.pending, (state) => {
       state.loading = true;
@@ -51,9 +52,8 @@ const userSlice: object = createSlice({
     builder.addCase(fetchUsers.rejected, (state, action) => {
       state.loading = false;
       state.users = [];
-      state.error = action.error.message;
     });
   },
 });
 
-export default userSlice.reducer;
+export default userSlice;

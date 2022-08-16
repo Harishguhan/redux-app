@@ -49,7 +49,7 @@ function createAxiosResponseInterceptor() {
             );
             error.response.config.headers['x-access-token'] =
               localStorage.getItem('access_token');
-            return axios(error.response.config);
+            return axios(error.response.config); // 
           })
           .catch((error) => {
             console.log('ref error', error);
