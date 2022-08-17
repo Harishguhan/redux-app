@@ -1,28 +1,26 @@
-import axios from "axios";
+import axios from 'axios';
 
-const customURL = axios.create({
-    baseURL:'http://localhost:5000/',
+const customAxios = axios.create({
+  baseURL: 'http://localhost:5000/',
 });
 
-const custom = customURL.interceptors.request.use(
-    async (config) =>{
-        const token =localStorage.getItem('access_token');
-        config.headers = {
-            'x-access-token':`${token}`,
-        };
-        return config;
-    },
-    (error) =>{
-        return Promise.reject(error);
-    }    
+const reqInterceptor = customAxios.interceptors.request.use(
+  async (config) => {
+    const token = localStorage.getItem('access_token');
+    config.headers = {
+      'x-access-token': `${token}`,
+    };
+    return config;
+  },
+  (error) => {
+    return Promise.reject(error);
+  }
 );
-
-export default customURL
 
 createAxiosResponseInterceptor();
 
 function createAxiosResponseInterceptor() {
-  customURL.interceptors.response.use(
+  customAxios.interceptors.response.use(
     (response) => response,
     (error) => {
       if (
@@ -31,7 +29,7 @@ function createAxiosResponseInterceptor() {
       ) {
         console.log('test');
 
-        customURL.interceptors.response.eject(custom);
+        customAxios.interceptors.response.eject(reqInterceptor);
 
         return axios
           .post('http://localhost:5000/auth/refresh', undefined, {
@@ -49,7 +47,7 @@ function createAxiosResponseInterceptor() {
             );
             error.response.config.headers['x-access-token'] =
               localStorage.getItem('access_token');
-            return axios(error.response.config); // 
+            return axios(error.response.config);
           })
           .catch((error) => {
             console.log('ref error', error);
@@ -68,3 +66,5 @@ function createAxiosResponseInterceptor() {
     }
   );
 }
+
+export default customAxios;

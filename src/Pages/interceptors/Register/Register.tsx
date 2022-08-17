@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import customURL from "../../../Axios/index";
 import "./Register.css";
 import { useNavigate } from 'react-router-dom';
+import customAxios from "../../../Axios/index";
 interface Register {
   name?: string;
   email?: string;
@@ -19,7 +19,7 @@ const Register = () => {
     e.preventDefault();
     let { name, email, password, cityname } = user;
     console.log(user)
-    customURL
+    customAxios
       .post("/auth/signup", { email, password })
       .then((responce) => {
         if (responce.status === 201) {

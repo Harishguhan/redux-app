@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
-import customURL from '../../../Axios'
+import customAxios from '../../../Axios';
+
 
 const Dashboard = () => {
   const navigate = useNavigate();
@@ -11,7 +12,7 @@ const logout = () =>{
   navigate('/login')
 }
 const getdata = () =>{
-    customURL
+    customAxios
     .get('/auth/employees')
     .then((responce) =>{
       setdata(responce?.data?.data?.employees)

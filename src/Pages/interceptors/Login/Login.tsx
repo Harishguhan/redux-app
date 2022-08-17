@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import customURL from "../../../Axios";
 import './Login.css';
 import { useNavigate } from "react-router-dom";
+import customAxios from "../../../Axios";
 const Login = () => {
 
   interface keyValue{
@@ -39,7 +40,7 @@ const handlesubmit = (e:React.FormEvent) =>{
   if (username && password){
     setloginuser(initialvalue)
   
-    customURL
+    customAxios
       .post('/auth/login',{email:username})
       .then((responce) => {
         console.log('responce.data',responce)
