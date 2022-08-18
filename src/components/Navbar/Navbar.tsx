@@ -6,7 +6,6 @@ import * as AiIcons from "react-icons/ai";
 import { SidebarData } from "./SidebarData";
 import Submenu from "./SubMenu";
 
-
 const Nav = styled.div`
 background:black;
 height:80px;

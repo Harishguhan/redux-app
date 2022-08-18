@@ -18,7 +18,7 @@ const Register = () => {
   const handlesubmit = (e: React.FormEvent) => {
     e.preventDefault();
     let { name, email, password, cityname } = user;
-    console.log(user)
+    console.log(user);
     customAxios
       .post("/auth/signup", { email, password })
       .then((responce) => {
