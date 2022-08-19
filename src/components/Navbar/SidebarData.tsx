@@ -5,7 +5,9 @@ import * as IoIcons from "react-icons/io";
 import * as RiIcons from "react-icons/ri";
 import * as BiIcons from "react-icons/bi";
 import * as GiIcons from "react-icons/gi";
+
 export const SidebarData = [
+
   {
     title: "Home",
     path: "/",
@@ -23,13 +25,12 @@ export const SidebarData = [
   },
   {
     title: "CRUD",
-    path: "/",
+    path: "#",
     icon: <IoIcons.IoMdCreate />,
     iconClosed: <IoIcons.IoMdArrowDropdown />,
     iconOpened: <IoIcons.IoMdArrowDropup />,
 
     subNav: [
-        
       {
         title: "Add Data",
         path: "/add",
@@ -37,35 +38,35 @@ export const SidebarData = [
       },
       {
         title: "View Data",
-        path: "/",
+        path: "/view",
         icon: <AiIcons.AiFillEye />,
-        iconClosed: <IoIcons.IoMdArrowDropdown />,
-        iconOpened: <IoIcons.IoMdArrowDropup />,
-
-        subNavMenu: [
-            {
-              title: "Submenu",
-              path: "/",
-              icon: <BiIcons.BiAddToQueue />,
-            },
-            {
-              title: "Submenu2",
-              path: "/",
-              icon: <BiIcons.BiAddToQueue />,
-            }
-          ],
       },
       {
         title: "Edit Data",
-        path: "/",
+        path: "#",
         icon: <BiIcons.BiEdit />,
+        iconClosed: <IoIcons.IoMdArrowDropdown />,
+        iconOpened: <IoIcons.IoMdArrowDropup />,
+
+        subNavMenus :[
+          {
+            title: "Submenu",
+            path: "/",
+            icon: <BiIcons.BiAddToQueue />,
+          },
+          {
+            title: "Submenu2",
+            path: "/",
+            icon: <BiIcons.BiAddToQueue />,
+          },
+        ],
+    
       },
-     
     ],
   },
   {
     title: "Interceptors",
-    path: "/",
+    path: "#",
     icon: <AiIcons.AiFillSetting />,
     iconClosed: <IoIcons.IoMdArrowDropdown />,
     iconOpened: <IoIcons.IoMdArrowDropup />,
@@ -75,6 +76,8 @@ export const SidebarData = [
         title: "Register",
         path: "/signup",
         icon: <GiIcons.GiArchiveRegister />,
+        iconClosed: <IoIcons.IoMdArrowDropdown />,
+        iconOpened: <IoIcons.IoMdArrowDropup />,
       },
       {
         title: "Login",

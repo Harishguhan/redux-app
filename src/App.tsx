@@ -11,12 +11,11 @@ import Login from "./Pages/interceptors/Login/Login";
 import Dashboard from "./Pages/interceptors/dashboard/Dashboard";
 import CustomComponent from "./components/CustomComponent";
 
-
 function App() {
   return (
     <div>
+      <Navbar />
       <Routes>
-        <Route path="/" element={<Navbar />} />
         <Route path="/add" element={<Addata />} />
         <Route path="/view" element={<Viewdata />} />
         <Route path="/edit/:id" element={<EditData />} />

@@ -12,6 +12,8 @@ height:80px;
 display:flex;
 justify-content:flex-start;
 align-items-center;
+position:fixed;
+width:100%;
 `;
 
 const NavIcon = styled(Link)`
@@ -49,17 +51,17 @@ const Navbar = () => {
   const [sidebar,setsidebar] = React.useState<boolean>(false);
 
   const showsidebar = () => setsidebar(!sidebar);
-
+  
   return (
     <>
       <Nav>
-        <NavIcon to="/">
+        <NavIcon to="#">
           <FaIcons.FaBars onClick={showsidebar}/>
         </NavIcon>
       </Nav>
       <SidebarNav sidebar={sidebar}>
         <SidebarWrap>
-        <NavIcon to="/">
+        <NavIcon to="#">
           <AiIcons.AiOutlineClose onClick={showsidebar} />
         </NavIcon>
         {SidebarData.map((item:any) => {
