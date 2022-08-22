@@ -102,11 +102,14 @@ console.log('test',currPath,item.path);
               {subNavMenu &&
                 item.subNavMenus?.map((item: any) => {
                   return (
-                    <DropdownLink to={item.path}>
+                    <>
+                    <DropdownLink to={item.path}  style={currPath === item.path ? { backgroundColor: "lightgreen" } : {}}>
+                     
                       {item.icon}
                       <SidebarLabel>{item.title}</SidebarLabel>
                       {item.iconClosed}
                     </DropdownLink>
+                    </>
                   );
                 })}
             </>

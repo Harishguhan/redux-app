@@ -13,6 +13,8 @@ import CustomComponent from "./components/CustomComponent";
 import Home from "./Pages/Sidenavbar/Home";
 import About from "./Pages/Sidenavbar/About";
 import Contact from "./Pages/Sidenavbar/Contact";
+import Namedetails from "./Pages/Sidenavbar/Namedetails";
+import Bankdetails from "./Pages/Sidenavbar/Bankdetails";
 function App() {
   return (
     <div>
@@ -30,6 +32,8 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/custom" element={<CustomComponent />} />
+        <Route path="/name" element={<Namedetails />} />
+        <Route path="/bank" element={<Bankdetails />} />
       </Routes>
     </div>
   );

@@ -42,7 +42,7 @@ export const SidebarData = [
         icon: <AiIcons.AiFillEye />,
       },
       {
-        title: "Edit Data",
+        title: "Update",
         path: "#",
         icon: <BiIcons.BiEdit />,
         iconClosed: <IoIcons.IoMdArrowDropdown />,
@@ -50,13 +50,13 @@ export const SidebarData = [
 
         subNavMenus :[
           {
-            title: "N-level-menu1",
-            path: "#",
+            title: "Name Details",
+            path: "/name",
             icon: <BiIcons.BiAddToQueue />,
           },
           {
-            title: "N-level-menu2",
-            path: "#",
+            title: "Bank details",
+            path: "/bank",
             icon: <BiIcons.BiAddToQueue />,
           },
         ],
