@@ -53,7 +53,6 @@ function createAxiosResponseInterceptor() {
             console.log('ref error', error);
             if (error.response.data.status === 'Refresh token expired') {
               localStorage.clear();
-              console.log('ref token expired');
               window.location.pathname = '/login';
               return error.response.data;
             }

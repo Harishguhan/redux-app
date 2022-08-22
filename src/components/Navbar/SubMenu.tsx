@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
 import styled from "styled-components";
-import { SidebarData } from "./SidebarData";
 import "./Navbar.css";
 
 const SidebarLink = styled(Link)`
