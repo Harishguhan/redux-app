@@ -23,7 +23,7 @@ const getdata = () =>{
   return (
     <div>
         <h1>Welcome To Dashboard</h1>
-        <button onClick={getdata}>Get Data</button>
+        <button onClick={getdata} className="btn btn-info mt-5">Get Data</button>
         {data?.map((datas:any,index) => {
           return <div id={index.toString()}>{datas.ename}</div>
         })}

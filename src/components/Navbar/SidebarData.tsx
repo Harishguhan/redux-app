@@ -10,17 +10,17 @@ export const SidebarData = [
 
   {
     title: "Home",
-    path: "/",
+    path: "/home",
     icon: <AiIcons.AiFillHome />,
   },
   {
     title: "About",
-    path: "/",
+    path: "/about",
     icon: <AiIcons.AiOutlineInfoCircle />,
   },
   {
     title: "Contact",
-    path: "/",
+    path: "/contact",
     icon: <IoIcons.IoIosContact />,
   },
   {
@@ -50,13 +50,13 @@ export const SidebarData = [
 
         subNavMenus :[
           {
-            title: "Submenu",
-            path: "/",
+            title: "N-level-menu1",
+            path: "#",
             icon: <BiIcons.BiAddToQueue />,
           },
           {
-            title: "Submenu2",
-            path: "/",
+            title: "N-level-menu2",
+            path: "#",
             icon: <BiIcons.BiAddToQueue />,
           },
         ],
@@ -88,7 +88,7 @@ export const SidebarData = [
   },
   {
     title: "Exit",
-    path: "/",
+    path: "/exit",
     icon: <IoIcons.IoIosExit />,
   },
 ];

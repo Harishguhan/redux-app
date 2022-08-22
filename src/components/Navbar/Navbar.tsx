@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { Link, NavLink, useLocation } from "react-router-dom";
 import styled from "styled-components";
 import * as FaIcons from "react-icons/fa";
 import * as AiIcons from "react-icons/ai";
@@ -47,11 +47,19 @@ width:100%;
 `;
 
 const Navbar = () => {
+  
+  const [currentpath,setcurrentpath] = useState('');
+  
+  const location = useLocation();
 
   const [sidebar,setsidebar] = React.useState<boolean>(false);
 
   const showsidebar = () => setsidebar(!sidebar);
-  
+
+  useEffect(() =>{
+    setcurrentpath(window.location.pathname);
+  },[location])
+  console.log(window.location.pathname)
   return (
     <>
       <Nav>

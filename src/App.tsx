@@ -10,21 +10,26 @@ import LoginForm from "./components/Loginform/LoginForm";
 import Login from "./Pages/interceptors/Login/Login";
 import Dashboard from "./Pages/interceptors/dashboard/Dashboard";
 import CustomComponent from "./components/CustomComponent";
-
+import Home from "./Pages/Sidenavbar/Home";
+import About from "./Pages/Sidenavbar/About";
+import Contact from "./Pages/Sidenavbar/Contact";
 function App() {
   return (
     <div>
       <Navbar />
       <Routes>
+        <Route path="/home" element={<Home />} />
+        <Route path="/About" element={<About />} />
+        <Route path="/contact" element={<Contact />} />
         <Route path="/add" element={<Addata />} />
         <Route path="/view" element={<Viewdata />} />
         <Route path="/edit/:id" element={<EditData />} />
         <Route path="/counter" element={<Counter />} />
         <Route path="/loginform" element={<LoginForm />} />
-        <Route path="/signup" element={ <Register /> } />
-        <Route path="/login" element = {<Login />} />
-        <Route path="/dashboard" element = { <Dashboard /> } />
-        <Route path="/custom" element = { <CustomComponent /> } />
+        <Route path="/signup" element={<Register />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/custom" element={<CustomComponent />} />
       </Routes>
     </div>
   );
