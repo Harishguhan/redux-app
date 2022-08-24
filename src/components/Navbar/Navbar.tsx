@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { Link, NavLink, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 import * as FaIcons from "react-icons/fa";
 import * as AiIcons from "react-icons/ai";
 import { SidebarData } from "./SidebarData";
 import Submenu from "./SubMenu";
-
+import './Navbar.css';
 const Nav = styled.div`
 background:black;
 height:80px;
@@ -47,19 +47,11 @@ width:100%;
 `;
 
 const Navbar = () => {
-  
-  const [currentpath,setcurrentpath] = useState('');
-  
-  const location = useLocation();
+
 
   const [sidebar,setsidebar] = React.useState<boolean>(false);
 
   const showsidebar = () => setsidebar(!sidebar);
-
-  useEffect(() =>{
-    setcurrentpath(window.location.pathname);
-  },[location])
-  console.log(window.location.pathname)
   return (
     <>
       <Nav>
@@ -67,11 +59,12 @@ const Navbar = () => {
           <FaIcons.FaBars onClick={showsidebar}/>
         </NavIcon>
       </Nav>
-      <SidebarNav style={sidebar}>
+    
+      <SidebarNav sidebar={sidebar}>
         <SidebarWrap>
         <NavIcon to="#">
           <AiIcons.AiOutlineClose onClick={showsidebar} />
-        </NavIcon>
+        </NavIcon>     
         {SidebarData.map((item:any) => {
             return <Submenu item={item} />
         })}
