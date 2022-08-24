@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link, NavLink, useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import styled from "styled-components";
 import "./Navbar.css";
 
@@ -53,11 +53,9 @@ const Submenu = ({ item }: any,path:string) => {
   const [subNavMenu, setsubNavMenu] = useState(false);
   const showsubNav = () => setsubNav(!subNav);
   const showsubNavMenu = () => setsubNavMenu(!subNavMenu);
-  console.log("subNav", item);
   useEffect(() => {
     setCurrPath(window.location.pathname);
   }, [location]);
-console.log('test',currPath,item.path);
 
   return (
     <>
