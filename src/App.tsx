@@ -1,6 +1,5 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
-import Navbar from "./components/Navbar/Navbar";
 import Viewdata from "./Pages/Viewcontact/Viewdata";
 import EditData from "./Pages/Editcontact/EditData";
 import Counter from "./Pages/Counter/Counter";
@@ -15,6 +14,7 @@ import About from "./Pages/Sidenavbar/About";
 import Contact from "./Pages/Sidenavbar/Contact";
 import Namedetails from "./Pages/Sidenavbar/Namedetails";
 import Bankdetails from "./Pages/Sidenavbar/Bankdetails";
+import Navbar from "./components/Navbar/Navbar";
 function App() {
   return (
     <div>

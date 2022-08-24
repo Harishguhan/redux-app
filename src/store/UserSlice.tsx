@@ -12,7 +12,7 @@ export const fetchUsers = createAsyncThunk("user/fetchUsers", () => {
     .get("http://localhost:7000/posts")
     .then((responce) => responce.data);
 });
-export const deleteUsers: any = createAsyncThunk(
+export const deleteUsers:any = createAsyncThunk(
   "user/deleteUsers",
   (userss) => {
     return axios
@@ -20,14 +20,14 @@ export const deleteUsers: any = createAsyncThunk(
       .then((responce) => responce.data);
   }
 );
-export const addUsers: any = createAsyncThunk("user.addUsers", (details) => {
+export const addUsers:any = createAsyncThunk("user.addUsers", (details) => {
   return axios
     .post("http://localhost:7000/posts", details)
     .then((responce) => responce.data);
 });
-export const editUsers: any = createAsyncThunk(
+export const editUsers= createAsyncThunk(
   "user.editUsers",
-  (updatevalue: any) => {
+  (updatevalue:any) => {
     return axios
 
       .put(`http://localhost:7000/posts/${updatevalue.id}`, updatevalue)
@@ -36,7 +36,7 @@ export const editUsers: any = createAsyncThunk(
   }
 );
 
-const userSlice: object = createSlice({
+const userSlice = createSlice({
   name: "user",
   initialState: initialState,
   reducers: {},

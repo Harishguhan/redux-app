@@ -2,8 +2,9 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import swal from 'sweetalert';
-import { AppDispatch, RootState } from "../../store/store";
+import { AppDispatch,RootState } from "../../store/store";
 import { deleteUsers, fetchUsers } from "../../store/UserSlice";
+
 
 interface declare {
   id:number,
@@ -24,7 +25,7 @@ const Viewdata = () => {
   const updatedata = (id:number) => {
     navigate(`/edit/${id}`);
   };
-  const deletedata = (userss:declare) => {
+  const deletedata = (userss:any) => {
     swal({
       title: "Are you sure?",
       text: "Once the the file deleted it will not be recovered",
